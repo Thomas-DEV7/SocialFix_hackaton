@@ -6,14 +6,14 @@ import { About } from './pages/About';
 import { AboutKaua } from './pages/AboutKaua';
 import { AboutDrar } from './pages/AboutDrar';
 import { NotFound } from './pages/NotFound';
+import { Menu } from './components/Menu';
 
 function App() {
   return (
     <div>
       <header>
-        <h1></h1>
+        <Menu/>
       </header>
-      <hr/>
       <div>
         <Routes>
           <Route path="/" element={<Home />}/>
@@ -23,10 +23,6 @@ function App() {
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </div>
-      <hr/>
-      <footer>
-        Todos os direitos reservados
-      </footer>
     </div>
   );
 }

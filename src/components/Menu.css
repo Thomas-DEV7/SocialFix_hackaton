@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.menu{
+    height: 110px;
+    background-color: #002966;
+    padding: 5px 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.siteInfos{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+}
+.siteTitle{
+    color: #FFF;
+    font-size: 40px;
+    font-family: 'Amaranth', sans-serif;
+    user-select: none;
+}
+.linksArea{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.link{
+    color: #FFF;
+    font-size: 25px;
+    user-select: none;
+    text-decoration: none;
+    margin: 0px 30px;
+}

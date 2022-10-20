@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+}
+.container{
+    padding: 50px 275px;
+}
+p{
+    padding: 0;
+}
+.mainSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.containerItems{
+    margin-top: 60px;
+}
+.title{
+    color: #002966;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.subTitle{
+    font-size: 20px;
+    margin: 10px
+}
+.buttonText{    
+    color: #FFF;
+    padding: 0;
+    margin: 20px 100px;
+    font-size: 20px;
+    user-select: none;
+}
+.buttonArea{
+    margin-top: 70px;
+    background-color: #002966;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.cardsArea{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.cardArea{
+    max-width: 425px;
+    height: 200px;
+    padding: 30px;
+    margin: 15px;
+    background-color: #42B170;
+    border-radius: 10px;
+}
+.cardTitle{
+    color: #FFF;
+    font-size: 25px;
+    font-weight: 700;
+}
+.cardText{
+    color: #FFF;
+    font-size: 23px;
+    font-weight: 300;
+}
