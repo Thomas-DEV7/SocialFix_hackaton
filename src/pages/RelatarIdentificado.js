@@ -5,22 +5,22 @@ import { ReactComponent as Arte } from "../images/arte.svg";
 import { Link } from "react-router-dom";
 import { TbUserOff, TbUser } from "react-icons/tb";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { getFirestore , collection, addDoc, setDoc, doc } from "firebase/firestore";
 import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from '../firebaseconfig';
-import { getFirestore , collection, addDoc } from "firebase/firestore";
+import { firebaseConfig } from '../firebase-config';
 
 export const RelatarIdentificado = () => {
   const [selectedFile, setSelectedFile] = useState();
-  const [nome, setNome] = useState();
-  const [telefone, setTelefone] = useState();
-  const [email, setEmail] = useState();
-  const [titulo, setTitulo] = useState();
-  const [endereco, setEndereco] = useState();
-  const [descricao, setDescricao] = useState();
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [email, setEmail] = useState("");
+  const [titulo, setTitulo] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [descricao, setDescricao] = useState("");
   const [preview, setPreview] = useState();
   const [imgName, setImgName] = useState();
   const [progress, setProgress] = useState();
-  const [imgURL, setImgURL] = useState();
+  const [imgURL, setImgURL] = useState("");
 
   const app = initializeApp(firebaseConfig);
 
@@ -29,6 +29,13 @@ export const RelatarIdentificado = () => {
 
 
   const enviarRelato = async () => {
+    enviarImagem();
+    setTimeout(() => {
+      enviarInfos();
+      alert("Seu relato foi enviado.")
+    }, "3000");
+  }
+  const enviarImagem = async () => {
     const storageRef = ref(storage, `images/${selectedFile.name}`);
     const uploadImg = await uploadBytesResumable(storageRef, selectedFile);
 
@@ -46,16 +53,22 @@ export const RelatarIdentificado = () => {
           setImgURL(url);
         })
       }
-    );
-    await addDoc(collection(db, "relatos"), {
+    )
+    console.log("funcionou");
+  }
+
+  const enviarInfos = async () => {
+    await setDoc(doc(collection(db, "relatos")),{
       nome: nome,
       telefone: telefone,
       email: email,
       titulo: titulo,
       endereco: endereco,
       descricao: descricao,
-      imgURL: imgURL,
-    });
+      imgURL: imgURL
+    }).then(() => {
+      console.log("funcionou");
+    })
   }
 
   useEffect(() => {
@@ -99,7 +112,7 @@ export const RelatarIdentificado = () => {
                 Telefone:<span>*</span>
               </p>
               <input
-                type="number"
+                type="text"
                 name="telefone"
                 className="adressInput"
                  value={telefone} onChange={(text) => setTelefone(text.target.value)}
