@@ -7,7 +7,7 @@ import { TbUserOff, TbUser } from "react-icons/tb";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../firebaseconfig';
-import { getFirestore , doc, setDoc } from "firebase/firestore";
+import { getFirestore , collection, addDoc } from "firebase/firestore";
 
 export const RelatarIdentificado = () => {
   const [selectedFile, setSelectedFile] = useState();
@@ -47,7 +47,7 @@ export const RelatarIdentificado = () => {
         })
       }
     );
-    await setDoc(doc(db, "relatos"), {
+    await addDoc(collection(db, "relatos"), {
       nome: nome,
       telefone: telefone,
       email: email,
@@ -55,8 +55,6 @@ export const RelatarIdentificado = () => {
       endereco: endereco,
       descricao: descricao,
       imgURL: imgURL,
-    }).catch((error) => {
-      alert(error);
     });
   }
 
