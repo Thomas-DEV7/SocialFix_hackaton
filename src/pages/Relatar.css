@@ -4,7 +4,7 @@
     font-family: 'Inter', sans-serif;
 }
 .container{
-    padding: 50px 20vw;
+    padding: 50px 5vw;
 }
 p{
     padding: 0;
@@ -20,9 +20,9 @@ p{
 .title{
     color: #002966;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 32px;
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 .subTitle{
     font-size: 20px;
@@ -34,7 +34,6 @@ p{
     margin: 20px 100px;
     font-size: 20px;
     user-select: none;
-    text-decoration: none;
 }
 .buttonArea{
     margin-top: 70px;
@@ -45,34 +44,35 @@ p{
     width: max-content;
     border-radius: 10px;
     cursor: pointer;
-    text-decoration: none;
 }
-.cardsArea{
-    margin-top: 50px;
+.content{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.cardArea{
-    width: 425px;
-    height: 200px;
-    padding: 30px;
-    margin: 15px;
+.optionsArea{
+    display: flex;
+    flex-direction: row;
+}
+.optionArea{
+    display: flex;
+    width: 32vw;
+    height: 17vw;
+    padding: 20px;
     background-color: #42B170;
     border-radius: 10px;
-    justify-content: flex-start;
-    align-items: flex-start;
+    margin: 0 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-decoration: none;
 }
-.cardTitle{
+.optionTitle{
     color: #FFF;
-    font-size: 25px;
+    font-size: 2.1vw;
     font-weight: 700;
     margin: 0;
     margin-bottom: 10px;
-}
-.cardText{
-    color: #FFF;
-    font-size: 23px;
-    font-weight: 300;
-    margin: 0;
+    user-select: none;
 }

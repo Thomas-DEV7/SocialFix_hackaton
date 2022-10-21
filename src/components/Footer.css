@@ -5,36 +5,30 @@
     font-family: 'Inter', sans-serif;
 }
 
-.menu{
-    height: 130px;
+.footer{
+    height: 180px;
     background-color: #002966;
-    padding: 5px 15vw;
+    padding: 5px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.iconsArea{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-}
-.siteInfos{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.siteTitle{
-    color: #FFF;
-    font-size: 40px;
-    font-family: 'Amaranth', sans-serif;
-    user-select: none;
-    text-decoration: none;
 }
 .linksArea{ 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.link{
+.text{
     color: #FFF;
-    font-size: 25px;
+    font-size: 20px;
     user-select: none;
-    text-decoration: none;
-    margin: 0px 30px;
+}
+.icon{
+    margin: 0 10px
 }

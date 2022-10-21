@@ -7,8 +7,8 @@ export const Menu = () => {
     return(
         <nav className="menu">
             <div className='siteInfos'>
-                <Logo width={100}/>
-                <h1 className="siteTitle">SOCIAL FIX</h1>
+                <Link to="/"><Logo width={120}/></Link>
+                <Link to="/" className="siteTitle">SOCIAL FIX</Link>
             </div>
             <div className="linksArea">
                 <Link to="/ajuda" className="link">AJUDA</Link>

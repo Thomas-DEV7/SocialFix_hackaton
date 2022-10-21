@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+}
+.container {
+  padding: 50px 5vw;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  font-size: 17px;
+  width: 500px;
+  height: 30px;
+  border-radius: 10px;
+  outline: 0;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.titleInput {
+  width: 350px;
+}
+.adressInput {
+  width: 300px;
+}
+h1 {
+  font-size: 25px;
+}
+textarea {
+  font-size: 17px;
+  width: 500px;
+  height: 250px;
+  border-radius: 10px;
+  outline: 0;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+p {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+span {
+  color: #f00;
+}
+.fileInput {
+  display: none;
+}
+.fileInputArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 200px;
+  font-size: 17px;
+  height: 30px;
+  border-radius: 10px;
+  outline: 0;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.buttonFileText{
+    margin: 0
+}
+.mainSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.containerItems {
+  margin-top: 100px;
+}
+.title {
+  color: #002966;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.subTitle {
+  font-size: 20px;
+  margin: 10px;
+}
+.buttonText {
+  color: #fff;
+  padding: 0;
+  margin: 20px 100px;
+  font-size: 20px;
+  user-select: none;
+}
+.buttonArea {
+  margin-top: 70px;
+  background-color: #002966;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.optionsArea {
+  display: flex;
+  flex-direction: row;
+}
+.optionArea {
+  display: flex;
+  width: 32vw;
+  height: 17vw;
+  padding: 20px;
+  background-color: #42b170;
+  border-radius: 10px;
+  margin: 0 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-decoration: none;
+}
+.optionTitle {
+  color: #fff;
+  font-size: 2.1vw;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 10px;
+  user-select: none;
+}

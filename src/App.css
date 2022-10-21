@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+html, body, .body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main{
+  flex: 1;
+  padding: 0 18vw;
+  padding-top: 50px;
+}
+footer{
+  margin-top: 30px;
+}
