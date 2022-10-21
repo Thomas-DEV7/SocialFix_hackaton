@@ -12,7 +12,7 @@ export const Home = () => {
           <p className="title">ALGUM PROBLEMA NA CIDADE?</p>
           <p className="subTitle">Você tem seus direitos como morador!</p>
           <Link to="/relatar" className="buttonArea">
-            <p class="buttonText">RELATAR PROBLEMA</p>
+            <p className="buttonText">RELATAR PROBLEMA</p>
           </Link>
         </div>
       </section>

@@ -43,7 +43,7 @@ html, body, .body{
 }
 main{
   flex: 1;
-  padding: 0 18vw;
+  padding: 0 17vw;
   padding-top: 50px;
 }
 footer{

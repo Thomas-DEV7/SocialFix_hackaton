@@ -25,6 +25,7 @@
     justify-content: space-between;
 }
 .text{
+    margin-top: 10px;
     color: #FFF;
     font-size: 20px;
     user-select: none;
