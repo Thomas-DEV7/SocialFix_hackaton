@@ -157,7 +157,10 @@ span {
   margin-bottom: 5px;
   margin-top: 21px;
 }
-input[type="submit"] {
+.submitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
   width: 300px;
   height: auto;
@@ -170,6 +173,9 @@ input[type="submit"] {
   margin-top: 30px;
   padding: 10px;
   cursor: pointer;
+}
+.submitButton p{
+    margin: 0;
 }
 .pickerButton {
   display: flex;

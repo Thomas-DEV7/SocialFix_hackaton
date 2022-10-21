@@ -11,7 +11,7 @@ import { getFirestore , doc, setDoc } from "firebase/firestore";
 
 export const RelatarIdentificado = () => {
   const [selectedFile, setSelectedFile] = useState();
-  const [nome, setNome] = useState("");
+  const [nome, setNome] = useState();
   const [telefone, setTelefone] = useState();
   const [email, setEmail] = useState();
   const [titulo, setTitulo] = useState();
@@ -30,9 +30,9 @@ export const RelatarIdentificado = () => {
 
   const enviarRelato = async () => {
     const storageRef = ref(storage, `images/${selectedFile.name}`);
-    const uploadImg = await uploadBytesResumable(storageRef, selectedFile)
+    const uploadImg = await uploadBytesResumable(storageRef, selectedFile);
 
-    await uploadImg.on(
+    uploadImg.on(
       "state_changed",
       snapshot => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -46,19 +46,18 @@ export const RelatarIdentificado = () => {
           setImgURL(url);
         })
       }
-    ).then(async () => {
-      await setDoc(doc(db, "relatos"), {
-        nome: nome,
-        telefone: telefone,
-        email: email,
-        titulo: titulo,
-        endereco: endereco,
-        descricao: descricao,
-        imgURL: imgURL,
-      }).catch((error) => {
-        alert(error);
-      })
-    })
+    );
+    await setDoc(doc(db, "relatos"), {
+      nome: nome,
+      telefone: telefone,
+      email: email,
+      titulo: titulo,
+      endereco: endereco,
+      descricao: descricao,
+      imgURL: imgURL,
+    }).catch((error) => {
+      alert(error);
+    });
   }
 
   useEffect(() => {
@@ -95,7 +94,7 @@ export const RelatarIdentificado = () => {
               <p>
                 Nome Completo:<span>*</span>
               </p>
-              <input type="text" name="name" className="titleInput" value={nome} onChange={(text) => {setNome(text); console.log(nome)}}/>
+              <input type="text" name="name" className="titleInput" value={nome} onChange={(text) => setNome(text.target.value)}/>
             </label>
             <label>
               <p>
@@ -103,9 +102,9 @@ export const RelatarIdentificado = () => {
               </p>
               <input
                 type="number"
-                name="adress"
+                name="telefone"
                 className="adressInput"
-                 value={telefone} onChange={(text) => setTelefone(text)}
+                 value={telefone} onChange={(text) => setTelefone(text.target.value)}
               />
             </label>
             <label>
@@ -116,14 +115,14 @@ export const RelatarIdentificado = () => {
                 type="text"
                 name="email"
                 className="titleInput"
-                 value={email} onChange={(text) => setEmail(text)}
+                 value={email} onChange={(text) => setEmail(text.target.value)}
               />
             </label>
             <label>
               <p>
                 Título do relato:<span>*</span>
               </p>
-              <input type="text" name="title" className="titleInput"  />
+              <input type="text" name="title" className="titleInput" value={titulo} onChange={(text) => setTitulo(text.target.value)}/>
             </label>
             <label>
               <p>
@@ -133,13 +132,14 @@ export const RelatarIdentificado = () => {
                 type="text"
                 name="adress"
                 className="adressInput"
-                
+                value={endereco}
+                onChange={(text) => setEndereco(text.target.value)}
               />
             </label>
             <p>
               Descrição do relato:<span>*</span>
             </p>
-            <textarea  />
+            <textarea value={descricao} onChange={(text) => setDescricao(text.target.value)}/>
             <div className="pickerButton">
               <label className="fileInputArea">
                 <p className="buttonFileText">Anexar imagem</p>
@@ -148,7 +148,6 @@ export const RelatarIdentificado = () => {
                   onChange={onSelectFile}
                   placeholder="Anexar imagem"
                   className="fileInput"
-                  
                   name="fileInput"
                 />
               </label>
@@ -156,7 +155,10 @@ export const RelatarIdentificado = () => {
                 (Se possível, anexe uma imagem)
               </span>
             </div>
-            <input type="submit" value="Enviar" onClick={() => enviarRelato()}/>
+            <div className="submitButton" onClick={() => enviarRelato()}>
+              <p>Enviar</p>
+            </div>
+
           </div>
           {selectedFile && (
             <div className="imageInfos">
