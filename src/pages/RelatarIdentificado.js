@@ -8,6 +8,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { getFirestore , collection, addDoc, setDoc, doc } from "firebase/firestore";
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../firebase-config';
+import { getDatabase } from "firebase/database";
 
 export const RelatarIdentificado = () => {
   const [selectedFile, setSelectedFile] = useState();
@@ -25,7 +26,7 @@ export const RelatarIdentificado = () => {
   const app = initializeApp(firebaseConfig);
 
   const storage = getStorage(app);
-  const db = getFirestore(app);
+  const db = getDatabase(app);
 
 
   const enviarRelato = async () => {
@@ -58,17 +59,20 @@ export const RelatarIdentificado = () => {
   }
 
   const enviarInfos = async () => {
-    await setDoc(doc(collection(db, "relatos")),{
-      nome: nome,
-      telefone: telefone,
-      email: email,
-      titulo: titulo,
-      endereco: endereco,
-      descricao: descricao,
-      imgURL: imgURL
-    }).then(() => {
-      console.log("funcionou");
+    getDownloadURL(ref(storage, `images/${selectedFile.name}`)).then(async (imgURL) => {
+      await setDoc(doc(collection(db, "relatos")),{
+        nome: nome,
+        telefone: telefone,
+        email: email,
+        titulo: titulo,
+        endereco: endereco,
+        descricao: descricao,
+        imgURL: imgURL
+      }).then(() => {
+        console.log("funcionou");
+      })
     })
+    
   }
 
   useEffect(() => {
